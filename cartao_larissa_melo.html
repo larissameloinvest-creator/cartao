@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Larissa Melo · Planejamento</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --vinho:       #5B1E2D;
+    --vinho-dark:  #3D1320;
+    --vinho-mid:   #6e2438;
+    --champagne:   #D6C2A5;
+    --champ-light: #E8D8C0;
+    --creme:       #F5F2ED;
+    --cinza:       #E7E3DE;
+    --branco:      #FFFFFF;
+    --texto:       #2C1A12;
+    --texto-suave: #6B4C3B;
+    --ademicon-red:#DC3C3C;
+  }
+
+  html, body {
+    min-height: 100%;
+    background: var(--creme);
+    font-family: 'Montserrat', sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    max-width: 480px;
+    margin: 0 auto;
+    background: var(--creme);
+    min-height: 100vh;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--vinho);
+    padding: 52px 32px 44px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-circle {
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid rgba(214,194,165,0.15);
+    pointer-events: none;
+  }
+  .hero-circle.c1 { width: 280px; height: 280px; top: -100px; right: -80px; }
+  .hero-circle.c2 { width: 200px; height: 200px; bottom: -60px; left: -50px; }
+
+  .monogram {
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+    margin-bottom: 8px;
+    position: relative;
+    z-index: 1;
+  }
+  .monogram .L { font-size: 96px; font-weight: 700; color: #fff; display: inline-block; }
+  .monogram .M { font-size: 80px; font-weight: 700; color: var(--champagne); display: inline-block; margin-left: -14px; vertical-align: bottom; margin-bottom: 4px; }
+
+  .nome {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+    position: relative; z-index: 1;
+  }
+
+  .planejamento {
+    font-size: 10px;
+    font-weight: 400;
+    color: var(--champagne);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    position: relative; z-index: 1;
+    white-space: nowrap;
+  }
+
+  .divisor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    position: relative; z-index: 1;
+  }
+  .divisor-line {
+    height: 1px;
+    width: 60px;
+    background: rgba(214,194,165,0.4);
+  }
+  .divisor-star {
+    color: var(--champagne);
+    font-size: 11px;
+  }
+
+  .tagline {
+    font-size: 16px;
+    font-weight: 300;
+    color: var(--champ-light);
+    letter-spacing: 0.3px;
+    line-height: 1.5;
+    margin-bottom: 28px;
+    position: relative; z-index: 1;
+  }
+  .tagline strong {
+    font-weight: 600;
+    color: #fff;
+  }
+
+  .badge-ademicon {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(214,194,165,0.1);
+    border: 1px solid rgba(214,194,165,0.25);
+    border-radius: 30px;
+    padding: 8px 20px;
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--champagne);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    position: relative; z-index: 1;
+  }
+  .badge-ademicon .adm { color: var(--ademicon-red); font-weight: 700; letter-spacing: 2px; }
+
+  /* ── CONTATO ── */
+  .section-contato {
+    padding: 36px 28px 28px;
+  }
+  .section-label {
+    text-align: center;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--texto-suave);
+    margin-bottom: 20px;
+  }
+
+  .btn-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    text-decoration: none;
+    margin-bottom: 12px;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .btn-link:active { transform: scale(0.97); opacity: 0.88; }
+
+  .btn-link.whatsapp { background: var(--vinho); }
+  .btn-link.instagram { background: var(--champagne); }
+  .btn-link.location  { background: var(--branco); border: 1px solid var(--cinza); }
+
+  .btn-icon-circle {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .whatsapp .btn-icon-circle  { background: rgba(255,255,255,0.15); }
+  .instagram .btn-icon-circle { background: rgba(91,30,45,0.12); }
+  .location .btn-icon-circle  { background: var(--creme); }
+
+  .btn-icon-circle svg { width: 22px; height: 22px; }
+  .whatsapp .btn-icon-circle svg  { fill: #fff; }
+  .instagram .btn-icon-circle svg { fill: var(--vinho); }
+  .location .btn-icon-circle svg  { fill: var(--vinho); }
+
+  .btn-text { flex: 1; }
+  .btn-sublabel {
+    display: block;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .btn-value {
+    display: block;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.2;
+  }
+  .whatsapp .btn-sublabel  { color: rgba(255,255,255,0.55); }
+  .whatsapp .btn-value     { color: #fff; }
+  .instagram .btn-sublabel { color: rgba(91,30,45,0.55); }
+  .instagram .btn-value    { color: var(--vinho-dark); }
+  .location .btn-sublabel  { color: var(--texto-suave); opacity: 0.6; }
+  .location .btn-value     { color: var(--vinho); }
+
+  .btn-arrow {
+    font-size: 22px;
+    opacity: 0.35;
+    font-weight: 300;
+  }
+  .whatsapp .btn-arrow  { color: #fff; }
+  .instagram .btn-arrow { color: var(--vinho); }
+  .location .btn-arrow  { color: var(--vinho); }
+
+  /* ── SOBRE ── */
+  .section-sobre {
+    background: var(--vinho);
+    padding: 44px 32px;
+    text-align: center;
+  }
+  .sobre-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 600;
+    color: var(--champagne);
+    margin-bottom: 16px;
+  }
+  .sobre-divider {
+    width: 60px;
+    height: 1px;
+    background: rgba(214,194,165,0.3);
+    margin: 0 auto 20px;
+  }
+  .sobre-text {
+    font-size: 14px;
+    font-weight: 300;
+    color: rgba(255,255,255,0.82);
+    line-height: 1.9;
+    max-width: 340px;
+    margin: 0 auto;
+  }
+
+  /* ── PILARES ── */
+  .pillares {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: var(--vinho-dark);
+  }
+  .pilar {
+    padding: 20px 8px;
+    text-align: center;
+    border-right: 1px solid rgba(214,194,165,0.12);
+  }
+  .pilar:last-child { border-right: none; }
+  .pilar svg { width: 24px; height: 24px; fill: none; stroke: var(--champagne); stroke-width: 1.5; margin-bottom: 8px; }
+  .pilar-label {
+    font-size: 9px;
+    font-weight: 500;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+    color: var(--champagne);
+    line-height: 1.5;
+  }
+
+  /* ── CTA ── */
+  .section-cta {
+    padding: 36px 28px 32px;
+    text-align: center;
+  }
+  .cta-text {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--texto-suave);
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  .cta-btn {
+    display: inline-block;
+    background: var(--vinho);
+    color: #fff;
+    text-decoration: none;
+    padding: 15px 36px;
+    border-radius: 40px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: transform 0.12s ease, opacity 0.12s ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .cta-btn:active { transform: scale(0.97); opacity: 0.88; }
+
+  /* ── RODAPÉ ── */
+  .rodape {
+    background: #1a0d10;
+    padding: 22px 28px;
+    text-align: center;
+  }
+  .rodape-text {
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(214,194,165,0.4);
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-circle c1"></div>
+    <div class="hero-circle c2"></div>
+
+    <div class="monogram">
+      <span class="L">L</span><span class="M">M</span>
+    </div>
+    <div class="nome">Larissa Melo</div>
+    <div class="planejamento">Planejamento</div>
+
+    <div class="divisor">
+      <div class="divisor-line"></div>
+      <span class="divisor-star">✦</span>
+      <div class="divisor-line"></div>
+    </div>
+
+    <div class="tagline">
+      <strong>Conquistas inteligentes</strong><br>para objetivos reais.
+    </div>
+
+    <div class="badge-ademicon">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="color:var(--champagne)"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      Parceira autorizada &nbsp;<span class="adm">ADEMICON</span>
+    </div>
+  </div>
+
+  <!-- CONTATO -->
+  <div class="section-contato">
+    <div class="section-label">Entre em contato</div>
+
+    <a href="https://wa.me/5511914967687?text=Ol%C3%A1%20Larissa%2C%20vi%20seu%20cart%C3%A3o%20e%20gostaria%20de%20saber%20mais%20sobre%20cons%C3%B3rcio!" class="btn-link whatsapp">
+      <div class="btn-icon-circle">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.127.558 4.122 1.532 5.856L0 24l6.292-1.508A11.932 11.932 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.793 9.793 0 01-5.028-1.384l-.36-.215-3.733.895.944-3.634-.235-.374A9.786 9.786 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/></svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-sublabel">WhatsApp</span>
+        <span class="btn-value">(11) 91496-7687</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <a href="https://www.instagram.com/larissamelo.ademicon?igsh=MTNsdzJsMnV1dzV3YQ==" class="btn-link instagram">
+      <div class="btn-icon-circle">
+        <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" fill="var(--creme)"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" stroke="var(--creme)" stroke-width="2" stroke-linecap="round"/></svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-sublabel">Instagram</span>
+        <span class="btn-value">@larissamelo.ademicon</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <a href="https://maps.app.goo.gl/ThePY9cNM6JnPUeP6" class="btn-link location">
+      <div class="btn-icon-circle">
+        <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3" fill="var(--creme)"/></svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-sublabel">Escritório</span>
+        <span class="btn-value">Ver localização</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+
+    <a href="https://www.linkedin.com/in/larissados-santosmelo/" class="btn-link location">
+      <div class="btn-icon-circle">
+        <svg viewBox="0 0 24 24" fill="var(--vinho)"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      </div>
+      <div class="btn-text">
+        <span class="btn-sublabel">LinkedIn</span>
+        <span class="btn-value">Larissa Melo</span>
+      </div>
+      <span class="btn-arrow">›</span>
+    </a>
+  </div>
+
+  <!-- SOBRE -->
+  <div class="section-sobre">
+    <div class="sobre-title">Especialista em Consórcio</div>
+    <div class="sobre-divider"></div>
+    <p class="sobre-text">
+      Ajudo pessoas e empresas a conquistarem seus objetivos com planejamento inteligente, sem juros e com total segurança patrimonial.
+    </p>
+  </div>
+
+  <!-- PILARES -->
+  <div class="pillares">
+    <div class="pilar">
+      <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      <div class="pilar-label">Planejamento<br>Financeiro</div>
+    </div>
+    <div class="pilar">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/></svg>
+      <div class="pilar-label">Realização de<br>Objetivos</div>
+    </div>
+    <div class="pilar">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <div class="pilar-label">Construção<br>Patrimonial</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="section-cta">
+    <p class="cta-text">
+      Pronta para transformar seu planejamento<br>em conquistas reais? Vamos conversar!
+    </p>
+    <a href="https://wa.me/5511914967687?text=Ol%C3%A1%20Larissa%2C%20vi%20seu%20cart%C3%A3o%20e%20gostaria%20de%20saber%20mais%20sobre%20cons%C3%B3rcio!" class="cta-btn">
+      Falar comigo agora
+    </a>
+  </div>
+
+  <!-- RODAPÉ -->
+  <div class="rodape">
+    <div class="rodape-text">Larissa Melo Planejamento · Parceira Ademicon</div>
+  </div>
+
+</div>
+</body>
+</html>
